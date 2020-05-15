@@ -1,0 +1,92 @@
+@font-face{
+    font-family: "roboto";
+    src: url('fonts/roboto-fontfacekit/web fonts/roboto_light_macroman/Roboto-Light-webfont.woff');
+}
+body{
+    font-family: "roboto",sans-serif;
+    background-color: #707070;
+    color: #FFF;
+}
+#conteneur{
+    display: block;
+    margin: 80px auto;
+    overflow: hidden;
+    width: 700px;
+    background-color: #000;
+    height: 700px;
+    border-radius: 12px;
+}
+
+input[type="text"]{
+    margin:0;
+    font-size:20px;
+    padding:5px;
+    
+}
+li *{
+    float: left;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+li,h3{
+    clear: both;
+    list-style-type:none;
+}
+button, input{
+    outline:none;
+    color:#707070;
+    border-radius: 6px;
+}
+button{
+    background:none;
+    border: 0px;
+    cursor: pointer;
+    width: 60px;
+    margin: 10px 0 0;
+}
+.add{
+    margin: 15px 150px 0;
+}
+button:hover{
+    color:green;
+}
+#add{
+    float: left;
+    width: 350px;
+    background-color:darkgrey;
+    line-height: 12px;
+    padding: 15px;
+    border: 2px solid #797979;
+}
+h3{
+    font-weight: bolder;
+    color: #797979;
+    border-bottom: 3px solid #797979;
+    text-transform: uppercase;
+}
+li{
+    padding: 20px 0;
+}
+ul li input[type="text"]{
+    display: none;
+}
+#a_faire li.edit input[type="text"]{
+    display: block;
+}
+#a_faire li.edit label{
+    display:none;
+}
+input[type="checkbox"]{
+    margin: 0 10px;
+    position: relative;
+    top: 10px;
+}
+#form{
+    padding: 20px 150px;
+}
+li label{
+    width:258px;
+    line-height:30px;
+}

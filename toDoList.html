@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="ma to-do-list"/>
+        <title>To Do List</title>
+        <link rel="stylesheet" href="toDoList.css"/>
+    </head>
+    <body>
+        <div id="conteneur">
+            <form id="form">
+                <input type="text" name="add" id="add" placeholder="Ajouter une nouvelle tâche"/>
+                <button class="add">Ajouter</button>
+            </form>
+                <h3>A faire</h3>
+                <ul id="a_faire">
+                    <li>
+                        <input type="checkbox"/>
+                        <label>Première tâche</label>
+                        <input type="text" value=""/>
+                        <button class="edit">Editer</button>
+                        <button class="remove">Supprimer</button>
+                    </li>
+                    <li class="edit">
+                        <input type="checkbox"/>
+                        <label>Seconde tâche</label>
+                        <input type="text" value="Editer"/>
+                        <button class="edit">Editer</button>
+                        <button class="remove">Supprimer</button><br/>
+                    </li>
+                </ul>
+                <h3>Complété</h3>
+                <ul id="complete">
+                    <li>
+                        <input type="checkbox" checked/>
+                        <label>Patate douce</label>
+                        <input type="text" value=""/>
+                        <button class="edit">Editer</button>
+                        <button class="remove">Supprimer</button>
+                    </li>
+                </ul><br/><br/>
+                
+        </div>
+    </body>
+</html>
