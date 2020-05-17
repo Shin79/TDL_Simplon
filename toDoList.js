@@ -3,7 +3,7 @@ boutonAjout = document.getElementsByTagName("button")[0],
 aFaire = document.getElementById("a_faire"),
 termine = document.getElementById("complete");
 
-// Création d'une nouvelle case liste de tâches
+// Création d'unede l'ossature liste de tâches
 let nouvelleTache = function(entree){
     let li = document.createElement("li"),
     inputCheckbox = document.createElement("input"),
@@ -31,11 +31,11 @@ let nouvelleTache = function(entree){
 
     //Fonction ajouter nouvelle tâche
 var nouvelAjout = function() {
-    console.log('Ajout d\'une nouvelle tâche..........');
+    console.log('Ajout d\'une nouvelle tâche');
     var listItem = nouvelleTache(entreeTache.value);
     if (entreeTache.value != "") {
       aFaire.appendChild(listItem);
-      //bindTaskEvents(listItem, taskComplete);
+      lierTaches(listItem, completeTache);
       entreeTache.value = "";
     } else {
       entreeTache.placeholder = "Ajouter une nouvelle tâche.";
@@ -51,12 +51,12 @@ var modifTache = function(){
     // Si la classe de parent est .edit
     if(classConteneur){
       // On switche sur .edit
-      //label devient la valeur des input
+      //label devient la valeur de l'input
       label.innerText = inputEdit.value;
     }else{
       inputEdit.value = label.innerText;
     }
-    // On bascule .edit vers le parent
+    // Si edit est défini, il la supprime et renvoie false sinon la crée et renvoie true
     listItem.classList.toggle("edit")
 }
 
@@ -68,3 +68,43 @@ var supprTache = function(){
   // On supprime la liste parent de ul
   ul.removeChild(listItem);
 }
+
+// Tâche terminée
+var completeTache = function(){
+  console.log("Tâche terminée");
+  //Ajouter la liste de tâches sur #complete
+  var listItem = this.parentNode;
+  termine.appendChild(listItem);
+  lierTaches(listItem,nocompleteTache);
+}
+
+// Tâche non terminée
+var nocompleteTache = function(){
+  console.log("Tâche non terminée");
+  // Quand la checkbox n'est pas cochée, on ajoute la liste de tâches
+  var listItem = this.parentNode;
+  aFaire.appendChild(listItem);
+  lierTaches(listItem,completeTache);
+}
+
+// L'expression de fonction pour lier 
+var lierTaches = function(objetTache,typeTache){
+  var checkbox = objetTache.querySelector("input[type=checkbox]");
+  var boutonEdit = objetTache.querySelector("button.edit");
+  var boutonSuppr = objetTache.querySelector("button.remove");
+  
+  boutonEdit.onclick = modifTache;
+  boutonSuppr.onclick = supprTache;
+  checkbox.onchange = typeTache;
+}
+// Boucle pour les tâches non terminées
+for(var i=0;i<aFaire.children.length;i++){
+  lierTaches(aFaire.children[i],completeTache);  // En cas de changement d'état
+}
+
+// Boucle pour les tâches terminées
+for(var i=0;i<termine.children.length;i++){
+  lierTaches(termine.children[i],nocompleteTache); // En cas de ch
+}
+
+boutonAjout.addEventListener("click",nouvelAjout); 
